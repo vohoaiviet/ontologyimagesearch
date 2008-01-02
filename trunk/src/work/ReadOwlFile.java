@@ -1,8 +1,11 @@
 package work;
 
+import java.util.Iterator;
+
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
+import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.util.FileManager;
@@ -21,19 +24,34 @@ It's also possible to run Schemagen as part of a build process with Ant, keeping
 public class ReadOwlFile {
 	
 	public void run(){
-		OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
+		OntModel m = ModelFactory.createOntologyModel();
+		m.read("./ontologies/photo_ontologies.owl");
+		
 		
 		//read in the ontology        
-        FileManager.get().readModel(m, "./ontologies/photoOntologies.owl");
-        listEntities(m, "City");
+//        FileManager.get().readModel(m, "./ontologies/photo_ontologies.owl");
+       
+        listEntities(m, "Location_Entities");
+        
         
 	}
 	
 	protected void listEntities(OntModel m, String keyword){
 		//find the keyword in the ontology
-		System.out.println(m.listClasses().toString());
-//		Resource entity = m.getResource(keyword);	
-//		System.out.println("entity: " +entity);
+		//System.out.println(m.listClasses().toString());
+//		OntClass c = m.getOntClass(keyword);
+//		System.out.println("C: " +c);
+	
+		Resource entity = m.getResource(keyword);
+		System.out.println("entity: " +entity);
+//		if(entity != null && entity.isClass()){
+//			System.out.println("here");;
+//		}
+//		Iterator<Object> iterate = entity.listProperties();
+//		System.out.println("ITERATE: " +iterate.toString());
+//		do{
+//			System.out.println(iterate.next());
+//		}while(iterate.hasNext());
 //		System.out.println("properties: " +entity.listProperties());
 ////		OntClass c = (OntClass)entity;
 //		OntClass c = m.getOntClass("Self_Standing_Entity");

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY owl2 "http://www.srg.ucd.ie/photoOntologes/owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+
+
+
+<!-- Axioms: 24 -->
+
+<Ontology xmlns="http://www.w3.org/2006/12/owl11-xml#"
+     xml:base="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2="http://www.srg.ucd.ie/photoOntologes/owl#"
+     URI="http://www.srg.ucd.ie/photoOntologes/owl">
+    <SubClassOf>
+        <OWLClass URI="&owl2;Earth"/>
+        <OWLClass URI="&owl2;Self_Standing_Entity"/>
+    </SubClassOf>
+    <Declaration>
+        <OWLClass URI="&owl2;Self_Standing_Entity"/>
+    </Declaration>
+    <Declaration>
+        <OWLClass URI="&owl2;Earth"/>
+    </Declaration>
+    <DisjointClasses>
+        <OWLClass URI="&owl2;Town"/>
+        <OWLClass URI="&owl2;Earth"/>
+    </DisjointClasses>
+    <Declaration>
+        <OWLClass URI="&owl2;Country"/>
+    </Declaration>
+    <DisjointClasses>
+        <OWLClass URI="&owl2;City"/>
+        <OWLClass URI="&owl2;Earth"/>
+    </DisjointClasses>
+    <Declaration>
+        <OWLClass URI="&owl2;Town"/>
+    </Declaration>
+    <SubClassOf>
+        <OWLClass URI="&owl2;City"/>
+        <OWLClass URI="&owl2;Self_Standing_Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <OWLClass URI="&owl2;Domain_Entity"/>
+        <OWLClass URI="&owl;Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <OWLClass URI="&owl2;Town"/>
+        <OWLClass URI="&owl2;Self_Standing_Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <OWLClass URI="&owl2;Self_Standing_Entity"/>
+        <OWLClass URI="&owl2;Domain_Entity"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <OWLClass URI="&owl2;City"/>
+        <OWLClass URI="&owl2;Continent"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <OWLClass URI="&owl2;Continent"/>
+        <OWLClass URI="&owl2;Self_Standing_Entity"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <OWLClass URI="&owl2;Town"/>
+        <OWLClass URI="&owl2;Continent"/>
+    </DisjointClasses>
+    <Declaration>
+        <OWLClass URI="&owl2;City"/>
+    </Declaration>
+    <Declaration>
+        <OWLClass URI="&owl2;Continent"/>
+    </Declaration>
+    <Declaration>
+        <OWLClass URI="&owl2;Domain_Entity"/>
+    </Declaration>
+    <DisjointClasses>
+        <OWLClass URI="&owl2;Country"/>
+        <OWLClass URI="&owl2;Earth"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <OWLClass URI="&owl2;Town"/>
+        <OWLClass URI="&owl2;Country"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <OWLClass URI="&owl2;Continent"/>
+        <OWLClass URI="&owl2;Earth"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <OWLClass URI="&owl2;Country"/>
+        <OWLClass URI="&owl2;Self_Standing_Entity"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <OWLClass URI="&owl2;Country"/>
+        <OWLClass URI="&owl2;Continent"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <OWLClass URI="&owl2;Town"/>
+        <OWLClass URI="&owl2;City"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <OWLClass URI="&owl2;Country"/>
+        <OWLClass URI="&owl2;City"/>
+    </DisjointClasses>
+</Ontology>

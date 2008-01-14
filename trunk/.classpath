@@ -30,5 +30,6 @@
 	<classpathentry kind="lib" path="C:/Users/Olga/Downloads/jscrape/libs/tagsoup-1.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Olga/Downloads/jscrape/libs/xalan.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Olga/Downloads/jscrape/jscrape.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/mysql-connector-java-5.1.5/mysql-connector-java-5.1.5-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

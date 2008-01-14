@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.srg.ucd.ie/photo_ontologies.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.srg.ucd.ie/photo_ontologies.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Country_State">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="World"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Town"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="City"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Continent_Region"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Location_entity"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Village"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Country_Region"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Country"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Continent"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Continent_Region">
+    <owl:disjointWith rdf:resource="#Country_State"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#World"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Location_entity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Town"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country_Region"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="subRegion"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Country"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#City"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Continent"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Village"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Country">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Country_State"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#World"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Continent_Region"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Village"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Location_entity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#City"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Country_State"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Town"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Town"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country_Region"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#City"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Continent"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Country_Region"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Village">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#City"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Country_State"/>
+    <rdfs:subClassOf rdf:resource="#Location_entity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Town"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith rdf:resource="#Continent_Region"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country_Region"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#World"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Continent"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Continent">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#City"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Town"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Location_entity"/>
+    <owl:disjointWith rdf:resource="#Country_State"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#World"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country_Region"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Continent_Region"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Continent_Region"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Village"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Country_Region">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#City"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#World"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Country_State"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#City"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Village"/>
+    <owl:disjointWith rdf:resource="#Continent"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Town"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Location_entity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Town"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith rdf:resource="#Continent_Region"/>
+  </owl:Class>
+  <owl:Class rdf:about="#World">
+    <rdfs:subClassOf rdf:resource="#Location_entity"/>
+    <owl:disjointWith rdf:resource="#Village"/>
+    <owl:disjointWith rdf:resource="#Continent_Region"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#City"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Town"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Country_State"/>
+    <owl:disjointWith rdf:resource="#Country_Region"/>
+    <owl:disjointWith rdf:resource="#Country"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Continent"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Continent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#City">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Town"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith rdf:resource="#Country_Region"/>
+    <rdfs:subClassOf rdf:resource="#Location_entity"/>
+    <owl:disjointWith rdf:resource="#Continent"/>
+    <owl:disjointWith rdf:resource="#World"/>
+    <owl:disjointWith rdf:resource="#Village"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Town"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Country_State"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Village"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Continent_Region"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Town">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Village"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#subRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Village"/>
+    <owl:disjointWith rdf:resource="#Continent_Region"/>
+    <owl:disjointWith rdf:resource="#Country_State"/>
+    <owl:disjointWith rdf:resource="#World"/>
+    <rdfs:subClassOf rdf:resource="#Location_entity"/>
+    <owl:disjointWith rdf:resource="#Country_Region"/>
+    <owl:disjointWith rdf:resource="#City"/>
+    <owl:disjointWith rdf:resource="#Continent"/>
+    <owl:disjointWith rdf:resource="#Country"/>
+  </owl:Class>
+  <owl:FunctionalProperty rdf:about="#subRegion">
+    <rdfs:domain rdf:resource="#Location_entity"/>
+    <rdfs:range rdf:resource="#Location_entity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <Continent_Region rdf:ID="North_America"/>
+  <Continent rdf:ID="Africa"/>
+  <Continent_Region rdf:ID="Western_Africa"/>
+  <Continent_Region rdf:ID="South_America"/>
+  <Continent_Region rdf:ID="Northern_Europe"/>
+  <Continent_Region rdf:ID="Southern_Asia"/>
+  <Continent_Region rdf:ID="Central_Asia"/>
+  <Continent_Region rdf:ID="Eastern_Africa"/>
+  <Continent_Region rdf:ID="Southern_Africa"/>
+  <Continent_Region rdf:ID="Southern_Europe"/>
+  <Continent rdf:ID="Asia"/>
+  <Continent_Region rdf:ID="Middle_Africa"/>
+  <Continent_Region rdf:ID="Australia_and_New_Zealand"/>
+  <Continent_Region rdf:ID="Eastern_Europe"/>
+  <Continent_Region rdf:ID="Western_Europe"/>
+  <Continent_Region rdf:ID="Middle_America"/>
+  <Continent rdf:ID="Americas"/>
+  <Continent rdf:ID="Oceana"/>
+  <Continent_Region rdf:ID="Polynesia"/>
+  <Continent_Region rdf:ID="Melanesia"/>
+  <Continent_Region rdf:ID="Western_Asia"/>
+  <Continent_Region rdf:ID="Northern_Africa"/>
+  <Continent_Region rdf:ID="South_Eastern_Asia"/>
+  <Continent_Region rdf:ID="Micronesia"/>
+  <Continent_Region rdf:ID="Eastern_Asia"/>
+  <Continent rdf:ID="Europe"/>
+  <Continent_Region rdf:ID="Carribean"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

@@ -1,36 +1,25 @@
 package work;
 
 import java.io.InputStream;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Vector;
 
-import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
-import com.hp.hpl.jena.ontology.OntResource;
-import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.FileManager;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
-import com.hp.hpl.jena.query.*;
-
-public class ReadOwlFile {
+public class ProcessOwlFile {
 
 	private OntModel model;
-	private Vector resultsVector;
 
 	public void run(){
 
 		readFile();
-//		listEntities(model, "Location_entity");
 		queryOntology();
-//		process();
 
 	}
 
@@ -112,6 +101,7 @@ public class ReadOwlFile {
 		"?x rdf:type ?type " +
 		"}";
 
+		//create a query object using the query string
 		Query query = QueryFactory.create(queryString4);
 
 		//execute the query and obtain the results
@@ -122,80 +112,21 @@ public class ReadOwlFile {
 			System.out.println("solution: " +solution.toString());
 		}
 
-		//print out results
-//		ResultSetFormatter.out(System.out, results, query);
-		/*	
-		//iterate through results and store in resultsVector
-		resultsVector = new Vector();
-		for(; results.hasNext();){
-			QuerySolution solution = results.nextSolution();
-			//access variables
-			RDFNode n = solution.get("x");
-
-			if(n.isLiteral()){
-				((Literal)n).getLexicalForm();
-				resultsVector.add(n);
-			}
-			else if(n.isResource()){
-				Resource r = (Resource)n;
-				resultsVector.add(r);
-
-			}
-			else{
-				resultsVector.add(n);
-			}
-
-		}
-
-		for(int i = 0; i<resultsVector.size(); i++){
-			System.out.println("i : " +resultsVector.elementAt(i));
-		}
 
 
 		//output query results
 //		ResultSetFormatter.out(System.out, results, query);
-		 */
+
 		//free up resources used running the query
 		qe.close();
 
 	}
 
-	/*protected void listEntities(OntModel m, String keyword){
-		//find the keyword in the ontology
 
 
-		OntClass c = m.getOntClass(keyword);
-		System.out.println("C: " +c);
-
-		Resource entity = m.getResource(keyword);
-		System.out.println("entity: " +entity);
-
-		StmtIterator iterator = entity.listProperties();
-		System.out.println("size of list: "+iterator.toList().size());
-
-		while(iterator.hasNext()){
-			System.out.println(iterator.next().toString());
-		}
-
-
-	}*/
-
-	protected void process(){
-		Resource resource = (Resource) resultsVector.elementAt(0);
-		StmtIterator iterator = resource.listProperties();
-
-		while(iterator.hasNext()){
-			System.out.println("property: "+iterator.next());
-		}
-
-
-
-
-
-	}
 
 	public static void main(String[] args){
-		new ReadOwlFile().run();
+		new ProcessOwlFile().run();
 	}
 
 }

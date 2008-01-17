@@ -28,8 +28,11 @@ public class ReadOwlFile {
 	public void run(){
 
 		readFile();
+		UsingJenaDatabaseBackend test = new UsingJenaDatabaseBackend();
+		test.factoryMethods(model);
+		
 //		listEntities(model, "Location_entity");
-		queryOntology();
+//		queryOntology();
 //		process();
 
 	}
@@ -196,6 +199,7 @@ public class ReadOwlFile {
 
 	public static void main(String[] args){
 		new ReadOwlFile().run();
+		
 	}
 
 }

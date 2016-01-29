@@ -1,0 +1,1 @@
+using ontologies to generate search terms in order to improve interactions with professional quality stock photo libraries. Will allow poorly tagged images to be retrieved even when the search word does not match the keyword tag associated with the image.
